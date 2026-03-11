@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.aerospike</groupId>
+  <artifactId>aerospike-up-and-running</artifactId>
+  <name>aerospike-up-and-running</name>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>21</java.version>
+    <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+    <aerospike-client-fluent.version>0.0.1</aerospike-client-fluent.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.aerospike</groupId>
+      <artifactId>aerospike-client-fluent</artifactId>
+      <version>${aerospike-client-fluent.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <release>${java.version}</release>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.5.0</version>
+        <configuration>
+          <mainClass>upandrunning.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
