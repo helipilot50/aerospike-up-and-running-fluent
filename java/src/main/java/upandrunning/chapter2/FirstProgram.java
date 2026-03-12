@@ -1,4 +1,4 @@
-package upandrunning;
+package upandrunning.chapter2;
 
 import com.aerospike.client.fluent.Cluster;
 import com.aerospike.client.fluent.ClusterDefinition;
