@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CreateDocumenr",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter3.CreateDocumenr",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
       "name": "Insert",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Insert",
