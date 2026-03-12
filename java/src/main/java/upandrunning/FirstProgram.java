@@ -14,7 +14,7 @@ import com.aerospike.client.fluent.policy.Behavior;
  * Connects to a local Aerospike node, writes a record, reads it back, then
  * deletes it. Run with a local Aerospike server on localhost:3000.
  */
-public class Main {
+public class FirstProgram {
 
     public static void main(String[] args) throws Exception {
         String host = "192.168.18.166";
@@ -22,7 +22,7 @@ public class Main {
 
         System.out.println("Connecting to Aerospike at " + host + ":" + port);
 
-        try (Cluster cluster = new ClusterDefinition(host, port).connect()) {
+        try (Cluster cluster = new ClusterDefinition(host, port).clusterName("test cluster").connect()) {
             Session session = cluster.createSession(Behavior.DEFAULT);
 
             DataSet demo = DataSet.of("test", "upandrunning");

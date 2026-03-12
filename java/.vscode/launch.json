@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "${file}",
+      "classPaths": [
+        "$Auto",
+        "${env:HOME}/.m2/repository/com/aerospike/aerospike-client-fluent/0.0.1/aerospike-client-fluent-0.0.1.jar"
+      ]
+    }
+  ]
+}
