@@ -22,39 +22,34 @@ public class FirstProgram {
 
         System.out.println("Connecting to Aerospike at " + host + ":" + port);
 
-        try (Cluster cluster = new ClusterDefinition(host, port).clusterName("test cluster").connect()) {
+        try (Cluster cluster = new ClusterDefinition(host, port).clusterName("pdm").connect()) {
             Session session = cluster.createSession(Behavior.DEFAULT);
 
-            DataSet demo = DataSet.of("test", "upandrunning");
+            DataSet demo = DataSet.of("test", "item");
 
             // ── Write ──────────────────────────────────────────────────────
-            System.out.println("\n[1] Writing record key=1");
             session.upsert(demo.id(1))
-                    .bin("message").setTo("Hello from Aerospike Fluent!")
-                    .bin("language").setTo("Java")
-                    .bin("version").setTo(1L)
+                    .bin("name").setTo("Stylish Couch")
+                    .bin("cost").setTo(50000f)
+                    .bin("discount").setTo(0.21f)
                     .execute();
-            System.out.println("    Written.");
 
             // ── Read ───────────────────────────────────────────────────────
-            System.out.println("\n[2] Reading record key=1");
             try (RecordStream stream = session.query(demo.id(1)).execute()) {
                 RecordResult result = stream.next();
                 if (result != null && result.isOk() && result.recordOrNull() != null) {
-                    System.out.println("    message  : " + result.recordOrNull().getValue("message"));
-                    System.out.println("    language : " + result.recordOrNull().getValue("language"));
-                    System.out.println("    version  : " + result.recordOrNull().getValue("version"));
+                    System.out.println(String.format(" %s costs $%.0f with a %d%% discount\n",
+                            result.recordOrNull().getValue("name"),
+                            result.recordOrNull().getValue("cost"),
+                            (int) (Double.parseDouble(result.recordOrNull().getValue("discount").toString()) * 100)));
+
                 } else {
                     System.out.println("    Record not found.");
                 }
             }
 
             // ── Delete ─────────────────────────────────────────────────────
-            System.out.println("\n[3] Deleting record key=1");
             session.delete(demo.id(1)).execute();
-            System.out.println("    Deleted.");
-
-            System.out.println("\nDone.");
         }
     }
 }
