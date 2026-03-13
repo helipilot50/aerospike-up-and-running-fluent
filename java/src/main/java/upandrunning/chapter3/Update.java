@@ -11,7 +11,7 @@ import com.aerospike.client.fluent.RecordStream;
 import com.aerospike.client.fluent.Session;
 import com.aerospike.client.fluent.policy.Behavior;
 
-public class Create {
+public class Update {
     public static void main(String[] args) {
         String host = "192.168.18.166";
         int port = 43000;
@@ -22,12 +22,13 @@ public class Create {
             Session session = cluster.createSession(Behavior.DEFAULT);
             DataSet productSet = DataSet.of("test", "products");
 
-            // ----Key-Value-Create----------------------------------------------------------------------------------
+            // ----Key-Value-Update----------------------------------------------------------------------------------
 
-            // insert a record with a single bin with id of 10012
+            // update a record with a single bin with id of 10012 to add a new bin called
+            // price
             // the record expires after 100 seconds
-            session.insert(productSet.id(10012)).expireRecordAfterSeconds(100)
-                    .bin("name").setTo("Stylish Couch")
+            session.update(productSet.id(10012)).expireRecordAfterSeconds(100)
+                    .bin("price").setTo(50000f)
                     .execute();
 
             // Read the product with id of 10012 back
@@ -39,25 +40,20 @@ public class Create {
             }
 
             // aql> select * from test.products where pk = 10012
-            // +-------+-----------------+
-            // | PK | name |
-            // +-------+-----------------+
-            // | 10012 | "Stylish Couch" |
-            // +-------+-----------------+
-            // 1 row in set (0.001 secs)
+            // +-------+-----------------+-------+
+            // | PK | name | price |
+            // +-------+-----------------+-------+
+            // | 10012 | "Stylish Couch" | 50000 |
+            // +-------+-----------------+-------+
+            // 1 row in set (0.000 secs)
 
-            // ----Document-Create---------------------------------------------------------------------------------
+            // ----Document-Ureate---------------------------------------------------------------------------------
 
-            // Define our product structure as a map
-            Map<String, Object> product = new HashMap<>();
-            product.put("name", "Stylish Couch");
-            product.put("productId", "10013");
-            product.put("purchasable", true);
-
-            // insert the product with id of 10013 as a document in a single bin
+            // insert the product with id of 10013 as a document to add a new bin called
+            // price
             // the record expires after 100 seconds
-            session.insert(productSet.id(10013)).expireRecordAfterSeconds(100)
-                    .bin("product").setTo(product)
+            session.update(productSet.id(10013)).expireRecordAfterSeconds(100)
+                    .bin("price").setTo(50000f)
                     .execute();
 
             // Read the product back with id of 10013
@@ -70,12 +66,12 @@ public class Create {
             }
 
             // aql> select * from test.products where pk = 10013
-            // +-------+--------------------------------------------------------------------------+
-            // | PK | product |
-            // +-------+--------------------------------------------------------------------------+
+            // +-------+--------------------------------------------------------------------------+-------+
+            // | PK | product | price |
+            // +-------+--------------------------------------------------------------------------+-------+
             // | 10013 | MAP('{"name":"Stylish Couch", "productId":"10013",
-            // "purchasable":true}') |
-            // +-------+--------------------------------------------------------------------------+
+            // "purchasable":true}') | 50000 |
+            // +-------+--------------------------------------------------------------------------+-------+
             // 1 row in set (0.001 secs)
 
         } finally {

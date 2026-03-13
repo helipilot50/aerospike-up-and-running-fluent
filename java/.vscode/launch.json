@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Update",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter3.Update",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
+      "name": "Create",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter3.Create",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
       "name": "CreateDocumenr",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.CreateDocumenr",
