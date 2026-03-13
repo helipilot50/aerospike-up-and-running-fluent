@@ -2,7 +2,7 @@
 
 This repository contains companion code to the book: **Aerospike Up & Running** published by O'Reilly.
 
-<img src="images/aerospike-up-and-running.png" alt="Aerospike Up & Running" width="200" height="200">
+<img src="images/aerospike-up-and-running.png" alt="Aerospike Up & Running" width="400" height="200">
 
 The code use the new "Fluent" client that employs the [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern)
 
