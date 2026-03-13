@@ -2,7 +2,7 @@
 
 This repository contains companion code to the book: **Aerospike Up & Running** published by O'Reilly.
 
-The code use the new "Fluent" client tat employs the [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern)
+The code use the new "Fluent" client that employs the [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern)
 
 ## The Builder Pattern
 
