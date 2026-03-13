@@ -34,7 +34,7 @@ The pattern typically involves:
 - Easy to add new optional fields
 - Great for complex multi-step construction
 
-### Languages that use it (to nale a few)
+### Languages that use it (to name a few)
 - Java
 - Typescript
 - Python
