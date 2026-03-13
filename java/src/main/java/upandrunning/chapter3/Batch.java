@@ -40,6 +40,20 @@ public class Batch {
             // read many records with a batch read
             session.query(productSet).execute().forEach(rec -> System.out.println(rec));
 
+            // aql> select * from test.products
+            // +----+---------+-----+-------+
+            // | PK | name | age | value |
+            // +----+---------+-----+-------+
+            // | 5 | "Fred" | 30 | 10 |
+            // | 8 | "Wilma" | 33 | 20 |
+            // | 2 | "Fred" | 30 | 15 |
+            // | 4 | "Fred" | 30 | 10 |
+            // | 7 | "Wilma" | 33 | 20 |
+            // | 3 | "Fred" | 30 | 10 |
+            // | 6 | "Wilma" | 33 | 20 |
+            // +----+---------+-----+-------+
+            // 7 rows in set (0.033 secs)
+
         } finally {
             cluster.close();
         }
