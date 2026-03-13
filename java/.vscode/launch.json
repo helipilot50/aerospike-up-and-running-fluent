@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Batch",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter3.Batch",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
+      "name": "LightWeight",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter3.LightWeight",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
+      "name": "Delete",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter3.Delete",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
       "name": "Update",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Update",
