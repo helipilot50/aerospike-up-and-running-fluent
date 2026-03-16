@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Expressions",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter4.Expressions",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
+      "name": "ListOperate",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter4.ListOperate",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
+      "name": "RecordOperate",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter4.RecordOperate",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
       "name": "Batch",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Batch",
