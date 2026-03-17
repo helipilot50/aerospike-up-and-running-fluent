@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MapOperate",
+      "request": "launch",
+      "mainClass": "upandrunning.chapter4.MapOperate",
+      "projectName": "aerospike-up-and-running"
+    },
+    {
+      "type": "java",
       "name": "Expressions",
       "request": "launch",
       "mainClass": "upandrunning.chapter4.Expressions",
