@@ -114,6 +114,24 @@ public class MapOperate {
              * aql> select * from test.products where pk=66743
              */
 
+            // fetch the 7th product in the list (index 6)
+            session.query(productSet.id(66743))
+                    .bin("products").onListIndex(6).getValues()
+                    .execute()
+                    .getFirst().ifPresent(result -> {
+                        System.out.println("7th product:\n" + result.recordOrNull().getMap("products") + "\n");
+                    });
+
+            // retrieve the products with the category of "Sports" using a filter <-----
+            // TODO
+            session.query(productSet.id(66743))
+                    .bin("products").get()
+                    .execute()
+                    .getFirst().ifPresent(result -> {
+                        System.out.println("Products in the Sports category:\n"
+                                + result.recordOrNull().getList("products") + "\n");
+                    });
+
         } finally {
             cluster.close();
         }
