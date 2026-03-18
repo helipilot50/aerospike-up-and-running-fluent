@@ -80,25 +80,18 @@ public class ListOperate {
                     .bin("list").get()
                     .execute()
                     .getFirst().ifPresent(result -> {
-                        System.out.println("Original list: " + result);
+                        System.out.println("\nList of numbers:\n" + result.recordOrNull().getList("list") + "\n");
                     });
 
             // list of products
             session.upsert(sampleSet.id(2)).bin("products").setTo(products).execute();
 
-            // retrieve the list of products back
+            // fetch the 7th product in the list (index 6)
             session.query(sampleSet.id(2))
-                    .bin("products").get()
+                    .bin("products").onListIndex(6).getValues()
                     .execute()
                     .getFirst().ifPresent(result -> {
-                        System.out.println("Original products:\n" + result + "\n");
-                    });
-
-            session.query(sampleSet.id(2))
-                    .bin("products").onListIndex(4) // <----- TODO
-                    .execute()
-                    .getFirst().ifPresent(result -> {
-                        System.out.println("First product:\n" + result + "\n");
+                        System.out.println("7th product:\n" + result.recordOrNull().getMap("products") + "\n");
                     });
 
         } finally {
