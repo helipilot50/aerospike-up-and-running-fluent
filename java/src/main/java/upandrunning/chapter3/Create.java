@@ -13,8 +13,8 @@ import com.aerospike.client.fluent.policy.Behavior;
 
 public class Create {
     public static void main(String[] args) {
-        String host = "192.168.18.166";
-        int port = 43000;
+        String host = System.getenv().getOrDefault("HOST", "127.0.0.1");
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "3000"));
         System.out.println("Connecting to Aerospike at " + host + ":" + port);
         Cluster cluster = new ClusterDefinition(host, port).clusterName("pdm").connect();
 

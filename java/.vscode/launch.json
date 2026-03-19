@@ -6,84 +6,96 @@
       "name": "MapOperate",
       "request": "launch",
       "mainClass": "upandrunning.chapter4.MapOperate",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "Expressions",
       "request": "launch",
       "mainClass": "upandrunning.chapter4.Expressions",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "ListOperate",
       "request": "launch",
       "mainClass": "upandrunning.chapter4.ListOperate",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "RecordOperate",
       "request": "launch",
       "mainClass": "upandrunning.chapter4.RecordOperate",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "Batch",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Batch",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "LightWeight",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.LightWeight",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "Delete",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Delete",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "Update",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Update",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "Create",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Create",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "CreateDocumenr",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.CreateDocumenr",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "Insert",
       "request": "launch",
       "mainClass": "upandrunning.chapter3.Insert",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
       "name": "FirstProgram",
       "request": "launch",
       "mainClass": "upandrunning.chapter2.FirstProgram",
-      "projectName": "aerospike-up-and-running"
+      "projectName": "aerospike-up-and-running",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
