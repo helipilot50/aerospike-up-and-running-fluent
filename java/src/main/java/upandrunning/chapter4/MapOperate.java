@@ -135,5 +135,68 @@ public class MapOperate {
         } finally {
             cluster.close();
         }
+    }}
+
+    // Product-level filter: featured == true
+    Exp filterOnFeatured = Exp.eq(
+            MapExp.getByKey(
+                    MapReturnType.VALUE, Type.BOOL,
+                    Exp.val("featured"),
+                    Exp.mapLoopVar(LoopVarPart.VALUE) // the value of the element in this iteration is extracted into a
+                                                      // loop variable whose data type is a map
+            ),
+            Exp.val(true));
+    // Variant-level filter: quantity > 0
+    Exp filterOnVariantInventory = Exp.gt(
+            MapExp.getByKey(
+                    MapReturnType.VALUE, Type.INT,
+                    Exp.val("quantity"),
+                    Exp.mapLoopVar(LoopVarPart.VALUE) // the value of the element in this iteration is extracted into a
+                                                      // loop variable whose data type is a map
+            ),
+            Exp.val(0));
+
+    Record record = client.operate(null, key,
+            CdtOperation.selectByPath("catalog", Exp.SELECT_MATCHING_TREE,
+                    CTX.allChildren(), // dive into variants
+                    CTX.allChildrenWithFilter(filterOnFeatured), // only featured products
+                    CTX.mapKey(Value.get("variants")), // only 'variants' instances
+                    CTX.allChildrenWithFilter(filterOnVariantInventory)) // only in-stock
+    );
+
+    System.out.println(record.getMap("inventory"));
+
+ {
+  "inventory" : {
+    "10000001" : {
+      "variants" : {
+        "2001" : {
+          "size" : "S",
+          "price" : 25,
+          "quantity" : 100
+        },
+        "2003" : {
+          "size" : "L",
+          "price" : 27,
+          "quantity" : 50
+        }
+      }
+    },
+    "50000009" : {
+      "variants" : [ {
+        "quantity" : 60,
+        "sku" : 3007,
+        "price" : 199,
+        "spec" : "1080p"
+      }, {
+        "quantity" : 30,
+        "sku" : 3008,
+        "price" : 399,
+        "spec" : "4K"
+      } ]
+    },
+    "50000006" : {
+      "variants" : { }
     }
+  }
 }
